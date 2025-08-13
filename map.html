@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Meta Tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <style>
+    #map {
+      height: 800px;
+    }
+  </style>
+
+  
+
+  
+</head>
+<body>
+
+  <!-- Navigation -->
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" href="home.html">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="map.html">Map</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="gestionnaire.html">Gestionnaire</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " href="data.html">Data</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="profil.html">Profil</a>
+    </li>
+  </ul>
+
+<br>
+
+<div class="flouide">
+    <div class="row">
+        <div class="col-md-10">
+              <!-- Map Container -->
+             <div id="map">
+
+
+             </div>
+
+
+
+
+
+
+
+
+             <!--barre droite de la page map-->
+        </div>
+        <div class="col-md-2">
+            <font style="color: purple;">
+            <label>Filter</label>
+            
+
+            <!--listes des entreprises-->
+
+               <select id="inputEntreprise" class="form-control">
+                 <option selected>Entreprise</option>
+                 <option>Jesa</option>
+                 <option>gardouz</option>
+                 <option>cmatemeb</option>
+                 <option>patrabl</option>
+                 <option>arco ts</option>
+                 <option>big indus</option>
+                 <option>sogap</option>
+                 <option>isofu</option>
+                 <option>spaciba</option>
+                 <option>sapem</option>
+                 <option>spts</option>
+                 <option>socadeleg</option>
+                 <option>aster</option>
+                 <option>lpee</option>
+                 <option>europa</option>
+                 <option>autres</option>
+               </select><br>
+                <!--ETATS-->
+               <label for="inputetat">Etat</label>
+                    <select id="inputetat" class="form-control">
+                       <option selected>Planifier</option>
+                       <option>Achever</option>
+                       <option>Encours</option>
+                    </select>
+
+                <div><br>
+                    
+                    <label for="iinputdt">Date des travaux</label>
+                    <input type="date" class="form-control" id="inputdate" placeholder="jj/mm/aaaa">
+                </div><br>
+                </font>
+            <center>
+                <button type="submit" class="btn btn-outline-success" > Appliquer</button>
+            </center>
+        </div>
+
+    </div>
+</div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- JS: jQuery + Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+
+  <!-- Map Initialization -->
+
+  <!-- Map Initialization -->
+  <script>
+    var map = L.map('map').setView([33.1040023, -8.5998066], 13);
+
+    // Default base layer
+    var defaultLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    
+
+    var esriSat = L.tileLayer(
+      'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      {
+        maxZoom: 19,
+        attribution: 'Tiles © Esri'
+      }
+    );
+
+    // Base map options
+    var baseMaps = {
+      "OpenStreetMap": defaultLayer,
+
+      "Satellite": esriSat
+    };
+
+    // Layer control
+    L.control.layers(baseMaps).addTo(map);
+  </script>
+</body>
+</html>
