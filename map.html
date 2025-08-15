@@ -51,6 +51,7 @@
               <!-- Map Container -->
              <div id="map">
 
+         
 
              </div>
 
@@ -65,7 +66,8 @@
         </div>
         <div class="col-md-2">
             <font style="color: purple;">
-            <label>Filter</label>
+              <b>
+            <label>Filter</label></b>
             
 
             <!--listes des entreprises-->
@@ -93,8 +95,14 @@
                <label for="inputetat">Etat</label>
                     <select id="inputetat" class="form-control">
                        <option selected>Planifier</option>
-                       <option>Achever</option>
+                       <option>annuler</option>
                        <option>Encours</option>
+                    </select><br>
+                <label for="inputsuper">Superviseur</label>
+                    <select id="inputsuper" class="form-control">
+                       <option>dahman</option>
+                       <option>mohamed</option>
+                       <option>autres</option>
                     </select>
 
                 <div><br>
@@ -102,10 +110,13 @@
                     <label for="iinputdt">Date des travaux</label>
                     <input type="date" class="form-control" id="inputdate" placeholder="jj/mm/aaaa">
                 </div><br>
-                </font>
+                
             <center>
-                <button type="submit" class="btn btn-outline-success" > Appliquer</button>
-            </center>
+                <button id="applyFilter" type="submit" class="btn btn-outline-success" > Appliquer</button>
+            </center><br>
+
+            <b>Boite à Ouetil</b>
+              </font> 
         </div>
 
     </div>
@@ -180,14 +191,27 @@
 
     // Layer control
     L.control.layers(baseMaps).addTo(map);
-//insersion des zones de test
-        var geojsonData={
+
+
+    // data testing
+
+var geojsonData={
   "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
       "properties": {
-        "name": "MMG"
+        "name": "MMG",
+        "superviseur": "dahman",
+        "CP": "X",
+        "entreprise": "sogap",
+        "zone": "MMG",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -200,7 +224,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "PARKING B"
+        "name": "PARKING B",
+        "superviseur": "mohamed",
+        "CP": "X",
+        "entreprise": "gardouz",
+        "zone": "PARKING B",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -213,7 +247,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "13E"
+        "name": "13E",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "13E",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -226,7 +270,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "CENTRAL"
+        "name": "CENTRAL",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "CENTRAL",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -239,7 +293,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "N CENTRAL"
+        "name": "N CENTRAL",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "CENTRAL",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -252,7 +316,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "U07"
+        "name": "U07",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "U07",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -264,7 +338,19 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
+      },
       "geometry": {
         "coordinates": [
           -8.609721343583118,
@@ -276,7 +362,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "U51"
+        "name": "U51",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "U51",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -289,7 +385,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "U51"
+        "name": "U53",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "U53",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -302,7 +408,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "AMONIAC"
+        "name": "AMONIAC",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "AMONIAC",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -314,7 +430,19 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name":"",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
+      },
       "geometry": {
         "coordinates": [
           -8.599910643688702,
@@ -325,7 +453,19 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
+      },
       "geometry": {
         "coordinates": [
           -8.60014333394517,
@@ -337,7 +477,18 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "U107D"
+        "name": "U107D",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "U107D",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
+
       },
       "geometry": {
         "coordinates": [
@@ -350,7 +501,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "RACK20"
+        "name": "RACK20",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "RACK20",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -363,7 +524,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "U116"
+        "name": "U116",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "U116",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -376,7 +547,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "BLOC6"
+        "name": "BLOC6",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "BLOC6",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -389,7 +570,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "BLOC7"
+        "name": "BLOC7",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "BLOC7",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -401,7 +592,19 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "name": "JFC2",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "JFC2",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
+      },
       "geometry": {
         "coordinates": [
           -8.611896344514264,
@@ -413,7 +616,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "JFC4"
+        "name": "JFC4",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "JFC4",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -426,7 +639,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "JFC5"
+        "name": "JFC5",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "JFC5",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -439,7 +662,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "KOFERT"
+        "name": "KOFERT",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "KOFERT",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -452,7 +685,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "JFC1"
+        "name": "JFC1",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "JFC1",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -465,7 +708,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "TERMINALE"
+        "name": "TERMINALE",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "TERMINALE",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -478,7 +731,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "TC"
+        "name": "TC",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "TC",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -491,7 +754,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "UM6P"
+        "name": "UM6P",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "UM6P",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -504,7 +777,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "MOSQUEE"
+        "name": "MOSQUEE",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "MOSQUEE",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -517,7 +800,17 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "DESSALEMENT"
+        "name": "DESSALEMENT",
+        "superviseur": "",
+        "CP": "X",
+        "entreprise": "",
+        "zone": "DESSALEMENT",
+        "etat": "planifier",
+        "nature travaux": "",
+        "permis de fouille": "",
+        "date fin": "",
+        "permis EC": "",
+        "mise a disposition": ""
       },
       "geometry": {
         "coordinates": [
@@ -529,14 +822,119 @@
     }
   ]
 }
+;
+const colors = {
+  encours: 'red',
+  planifier: 'blue',
+  annuler: '#08FF7F'
+};
 
-L.geoJSON(geojsonData, {
-  onEachFeature: function(feature, layer) {
-    layer.bindPopup(feature.properties.name);
+function createGeoJsonLayer(data) {
+  return L.geoJSON(data, {
+    pointToLayer: function(feature, latlng) {
+      let color = colors[feature.properties.etat] || 'purple';
+      return L.circleMarker(latlng, {
+        radius: 8,
+        fillColor: color,
+        color: '#000',
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      });
+    },
+    onEachFeature: function(feature, layer) {
+      let p = feature.properties;
+      
+      // Fonction pour mettre à jour la popup
+      function updatePopup() {
+        layer.bindPopup(`
+          <b>Superviseur :</b> ${p.superviseur || ''}<br>
+          <b>Entreprise :</b> ${p.entreprise || ''}<br>
+          <b>Zone :</b> ${p.zone || ''}<br>
+          <b>État :</b> ${p.etat || ''}<br>
+          <b>Nature travaux :</b> ${p["nature travaux"] || ''}<br>
+        `);
+      }
+
+      // Premier affichage
+      updatePopup();
+
+      // Événement contextmenu pour modifier les données avec click droite 
+      layer.on('contextmenu', function() {
+        let newEtat = prompt("Nouvel état (encours, planifier, annuler) :", p.etat);
+        if (newEtat) {
+          p.etat = newEtat;
+        }
+        
+        
+
+        // Recréer le marqueur avec la nouvelle couleur
+        let newColor = colors[p.etat] || 'purple';
+        layer.setStyle({ fillColor: newColor });
+
+        // Mettre à jour la popup
+        updatePopup();
+        layer.openPopup();
+      });
+    }
+  });
+}
+
+// ---- Utilisation ----
+let geoLayer = createGeoJsonLayer(geojsonData);
+geoLayer.addTo(map);
+
+
+
+// fileeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer prendre d un autre model
+
+
+document.getElementById('applyFilter').addEventListener('click', function () {
+  // Récupérer les valeurs des filtres
+  let selectedEntreprise = document.getElementById('inputEntreprise').value.toLowerCase();
+  let selectedEtat = document.getElementById('inputetat').value.toLowerCase();
+  let selectedSuperviseur = document.getElementById('inputsuper').value.toLowerCase();
+  let selectedDate = document.getElementById('inputdate').value; // format: YYYY-MM-DD
+
+  // Filtrer les features
+  let filteredFeatures = geojsonData.features.filter(function (feature) {
+    let p = feature.properties;
+
+    // Normaliser les valeurs
+    let entreprise = (p.entreprise || '').toLowerCase();
+    let etat = (p.etat || '').toLowerCase();
+    let superviseur = (p.superviseur || '').toLowerCase();
+    let dateTravaux = p["date fin"]; // ou "mise a disposition" selon ton besoin
+
+    let matchEntreprise = selectedEntreprise === "entreprise" || entreprise === selectedEntreprise;
+    let matchEtat = selectedEtat === "planifier" || etat === selectedEtat;
+    let matchSuperviseur = selectedSuperviseur === "autres" || superviseur === selectedSuperviseur;
+    let matchDate = !selectedDate || dateTravaux === selectedDate;
+
+    return matchEntreprise && matchEtat && matchSuperviseur && matchDate;
+  });
+
+  // Nettoyer l’ancienne couche
+  if (geoLayer) {
+    map.removeLayer(geoLayer);
   }
-}).addTo(map);
-    
+
+  // Créer une nouvelle couche filtrée
+  let filteredData = {
+    type: "FeatureCollection",
+    features: filteredFeatures
+  };
+
+  geoLayer = createGeoJsonLayer(filteredData);
+  geoLayer.addTo(map);
+});
+
+
+
+
+
+
+
   </script>
 </body>
 </html>
-
